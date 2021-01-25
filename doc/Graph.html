@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="ECC.html">
+<link rel="next" href="IntMap.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="ECC" rel="Chapter" href="ECC.html">
+<link title="Graph" rel="Chapter" href="Graph.html">
+<link title="IntMap" rel="Chapter" href="IntMap.html">
+<link title="IntSet" rel="Chapter" href="IntSet.html">
+<link title="KSW" rel="Chapter" href="KSW.html">
+<link title="PSQueue" rel="Chapter" href="PSQueue.html">
+<link title="Sweep" rel="Chapter" href="Sweep.html">
+<link title="Util" rel="Chapter" href="Util.html"><title>Graph</title>
+</head>
+<body>
+<div class="navbar"><a href="ECC.html">Previous</a>
+&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="IntMap.html">Next</a>
+</div>
+<center><h1>Module <a href="type_Graph.html">Graph</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Graph: <code class="code">sig</code> <a href="Graph.html">..</a> <code class="code">end</code></pre>Module for handling undirected functional graphs.
+    Vertices are represented by integers. No self loops or multiple
+    edges are possible.<br>
+<hr width="100%">
+<pre><span class="keyword">type</span> <a name="TYPEt"></a><code class="type"></code>t </pre>
+<div class="info">
+The type of a graph.<br>
+</div>
+
+<pre><span class="keyword">val</span> <a name="VALempty"></a>empty : <code class="type"><a href="Graph.html#TYPEt">t</a></code></pre><div class="info">
+Returns the empty graph. O(1) time.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALof_graph6"></a>of_graph6 : <code class="type">string -> <a href="Graph.html#TYPEt">t</a></code></pre><pre><span class="keyword">val</span> <a name="VALmake_clique"></a>make_clique : <code class="type">int -> <a href="Graph.html#TYPEt">t</a></code></pre><pre><span class="keyword">val</span> <a name="VALnum_vertices"></a>num_vertices : <code class="type"><a href="Graph.html#TYPEt">t</a> -> int</code></pre><div class="info">
+Returns the number of vertices in the graph. O(1) time.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALnum_edges"></a>num_edges : <code class="type"><a href="Graph.html#TYPEt">t</a> -> int</code></pre><div class="info">
+Returns the number of edges in the graph. O(n) time.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALhas_vertex"></a>has_vertex : <code class="type"><a href="Graph.html#TYPEt">t</a> -> int -> bool</code></pre><div class="info">
+<code class="code">has_vertex g i</code> is true if vertex <code class="code">i</code> is present in graph
+    <code class="code">g</code>. O(log n) time.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALvertices"></a>vertices : <code class="type"><a href="Graph.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">IntSet.t</a></code></pre><div class="info">
+Returns the set of vertices. O(n) time.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALis_connected"></a>is_connected : <code class="type"><a href="Graph.html#TYPEt">t</a> -> int -> int -> bool</code></pre><div class="info">
+<code class="code">is_connected g i j</code> returns true if there is an edge between
+    <code class="code">i</code> and <code class="code">j</code> in <code class="code">g</code>. O(log n) time.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALneighbors"></a>neighbors : <code class="type"><a href="Graph.html#TYPEt">t</a> -> int -> <a href="IntSet.html#TYPEt">IntSet.t</a></code></pre><div class="info">
+<code class="code">neighbors g i</code> returns the set of neighbors of <code class="code">i</code> in
+    <code class="code">g</code>. O(log n) time.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALis_deg0"></a>is_deg0 : <code class="type"><a href="Graph.html#TYPEt">t</a> -> int -> bool</code></pre><div class="info">
+<code class="code">is_deg0 g i</code> returns true if <code class="code">i</code> has no neighbors in <code class="code">g</code>. O(log n)
+    time.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALdeg"></a>deg : <code class="type"><a href="Graph.html#TYPEt">t</a> -> int -> int</code></pre><div class="info">
+<code class="code">deg g i</code> returns the number of neighbors of <code class="code">i</code> in <code class="code">g</code>. O(log
+    n) time.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALis_clique"></a>is_clique : <code class="type"><a href="Graph.html#TYPEt">t</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALchoose_edge"></a>choose_edge : <code class="type"><a href="Graph.html#TYPEt">t</a> -> int * int</code></pre><pre><span class="keyword">val</span> <a name="VALadd_vertex"></a>add_vertex : <code class="type"><a href="Graph.html#TYPEt">t</a> -> int -> <a href="Graph.html#TYPEt">t</a></code></pre><div class="info">
+<code class="code">add_vertex g i</code> returns <code class="code">g</code> with a new degree-0 vertex <code class="code">i</code>.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALnew_vertex"></a>new_vertex : <code class="type"><a href="Graph.html#TYPEt">t</a> -> int</code></pre><div class="info">
+<code class="code">new_vertex g</code> returns the smallest positive <code class="code">i</code> such that <code class="code">i</code> is not a vertex
+    in <code class="code">g</code>.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALconnect"></a>connect : <code class="type"><a href="Graph.html#TYPEt">t</a> -> int -> int -> <a href="Graph.html#TYPEt">t</a></code></pre><div class="info">
+<code class="code">connect g v w</code> returns <code class="code">g</code> with vertices <code class="code">v</code> and <code class="code">w</code>
+    connected. O(log n) time.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALdisconnect"></a>disconnect : <code class="type"><a href="Graph.html#TYPEt">t</a> -> int -> int -> <a href="Graph.html#TYPEt">t</a></code></pre><div class="info">
+<code class="code">disconnect g v w</code> returns <code class="code">g</code> with vertices <code class="code">v</code> and <code class="code">w</code>
+    disconnected.  O(log n) time.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALdelete_vertex"></a>delete_vertex : <code class="type"><a href="Graph.html#TYPEt">t</a> -> int -> <a href="Graph.html#TYPEt">t</a></code></pre><div class="info">
+<code class="code">delete_vertex g i</code> returns <code class="code">g</code> with vertex <code class="code">i</code> deleted. O(m)
+    time.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALsubgraph"></a>subgraph : <code class="type"><a href="Graph.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">IntSet.t</a> -> <a href="Graph.html#TYPEt">t</a></code></pre><pre><span class="keyword">val</span> <a name="VALclear_subgraph"></a>clear_subgraph : <code class="type"><a href="Graph.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">IntSet.t</a> -> <a href="Graph.html#TYPEt">t</a></code></pre><pre><span class="keyword">val</span> <a name="VALcomplete_subgraph"></a>complete_subgraph : <code class="type"><a href="Graph.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">IntSet.t</a> -> <a href="Graph.html#TYPEt">t</a></code></pre><pre><span class="keyword">val</span> <a name="VALnum_edges_in_subgraph"></a>num_edges_in_subgraph : <code class="type"><a href="Graph.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">IntSet.t</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALfold_vertices"></a>fold_vertices : <code class="type">('a -> int -> <a href="IntSet.html#TYPEt">IntSet.t</a> -> 'a) -> <a href="Graph.html#TYPEt">t</a> -> 'a -> 'a</code></pre><pre><span class="keyword">val</span> <a name="VALfold_neighbors"></a>fold_neighbors : <code class="type">('a -> int -> 'a) -> <a href="Graph.html#TYPEt">t</a> -> int -> 'a -> 'a</code></pre><pre><span class="keyword">val</span> <a name="VALfold_edges"></a>fold_edges : <code class="type">('a -> int -> int -> 'a) -> <a href="Graph.html#TYPEt">t</a> -> 'a -> 'a</code></pre><pre><span class="keyword">val</span> <a name="VALfold_subgraph_edges"></a>fold_subgraph_edges : <code class="type">('a -> int -> int -> 'a) -> <a href="Graph.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">IntSet.t</a> -> 'a -> 'a</code></pre><pre><span class="keyword">val</span> <a name="VALiter_edges"></a>iter_edges : <code class="type">(int -> int -> unit) -> <a href="Graph.html#TYPEt">t</a> -> unit</code></pre><div class="info">
+<code class="code">iter_edges f g</code> calls <code class="code">f u v</code> for each edge <code class="code">(u, v)</code> in <code class="code">g</code>.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALcomplement"></a>complement : <code class="type"><a href="Graph.html#TYPEt">t</a> -> <a href="Graph.html#TYPEt">t</a></code></pre><pre><span class="keyword">val</span> <a name="VALoutput"></a>output : <code class="type">Pervasives.out_channel -> <a href="Graph.html#TYPEt">t</a> -> unit</code></pre><div class="info">
+<code class="code">output c g</code> prints a debug representation of <code class="code">g</code> to channel <code class="code">c</code>.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALprint"></a>print : <code class="type"><a href="Graph.html#TYPEt">t</a> -> unit</code></pre><div class="info">
+<code class="code">print g</code> is the same as <code class="code">output stdout g</code>.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALdump"></a>dump : <code class="type"><a href="Graph.html#TYPEt">t</a> -> unit</code></pre><div class="info">
+<code class="code">dump g</code> is the same as <code class="code">output stderr g</code>.<br>
+</div>
+</body></html>

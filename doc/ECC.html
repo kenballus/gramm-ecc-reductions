@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="next" href="Graph.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="ECC" rel="Chapter" href="ECC.html">
+<link title="Graph" rel="Chapter" href="Graph.html">
+<link title="IntMap" rel="Chapter" href="IntMap.html">
+<link title="IntSet" rel="Chapter" href="IntSet.html">
+<link title="KSW" rel="Chapter" href="KSW.html">
+<link title="PSQueue" rel="Chapter" href="PSQueue.html">
+<link title="Sweep" rel="Chapter" href="Sweep.html">
+<link title="Util" rel="Chapter" href="Util.html"><title>ECC</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="Graph.html">Next</a>
+</div>
+<center><h1>Module <a href="type_ECC.html">ECC</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> ECC: <code class="code">sig</code> <a href="ECC.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span class="keyword">type</span> <a name="TYPEt"></a><code class="type"></code>t </pre>
+
+<pre><span class="keyword">val</span> <a name="VALis_clique_cover"></a>is_clique_cover : <code class="type"><a href="Graph.html#TYPEt">Graph.t</a> -> <a href="IntSet.html#TYPEt">IntSet.t</a> list -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALmake"></a>make : <code class="type"><a href="Graph.html#TYPEt">Graph.t</a> -> <a href="ECC.html#TYPEt">t</a></code></pre><pre><span class="keyword">val</span> <a name="VALmake1"></a>make1 : <code class="type"><a href="Graph.html#TYPEt">Graph.t</a> -> <a href="Graph.html#TYPEt">Graph.t</a> -> <a href="ECC.html#TYPEt">t</a></code></pre><pre><span class="keyword">val</span> <a name="VALreduce_rule1"></a>reduce_rule1 : <code class="type"><a href="ECC.html#TYPEt">t</a> -> bool * <a href="ECC.html#TYPEt">t</a></code></pre><pre><span class="keyword">val</span> <a name="VALreduce_rule2"></a>reduce_rule2 : <code class="type"><a href="ECC.html#TYPEt">t</a> -> bool * <a href="ECC.html#TYPEt">t</a></code></pre><pre><span class="keyword">val</span> <a name="VALreduce_rule3"></a>reduce_rule3 : <code class="type"><a href="ECC.html#TYPEt">t</a> -> bool * <a href="ECC.html#TYPEt">t</a></code></pre><pre><span class="keyword">val</span> <a name="VALreduce_rule4"></a>reduce_rule4 : <code class="type"><a href="ECC.html#TYPEt">t</a> -> bool * <a href="ECC.html#TYPEt">t</a></code></pre><pre><span class="keyword">val</span> <a name="VALg"></a>g : <code class="type"><a href="ECC.html#TYPEt">t</a> -> <a href="Graph.html#TYPEt">Graph.t</a></code></pre><pre><span class="keyword">val</span> <a name="VALk"></a>k : <code class="type"><a href="ECC.html#TYPEt">t</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALk_used_up"></a>k_used_up : <code class="type"><a href="ECC.html#TYPEt">t</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALall_covered"></a>all_covered : <code class="type"><a href="ECC.html#TYPEt">t</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALbranching_edge"></a>branching_edge : <code class="type"><a href="ECC.html#TYPEt">t</a> -> int * int</code></pre><pre><span class="keyword">val</span> <a name="VALrestore"></a>restore : <code class="type"><a href="ECC.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">IntSet.t</a> list -> <a href="IntSet.html#TYPEt">IntSet.t</a> list</code></pre><pre><span class="keyword">val</span> <a name="VALset_max_k"></a>set_max_k : <code class="type"><a href="ECC.html#TYPEt">t</a> -> int -> <a href="ECC.html#TYPEt">t</a></code></pre><pre><span class="keyword">val</span> <a name="VALcover"></a>cover : <code class="type"><a href="ECC.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">IntSet.t</a> -> <a href="ECC.html#TYPEt">t</a></code></pre><pre><span class="keyword">val</span> <a name="VALreduce"></a>reduce : <code class="type"><a href="ECC.html#TYPEt">t</a> -> <a href="ECC.html#TYPEt">t</a></code></pre><pre><span class="keyword">val</span> <a name="VALuse_rule1"></a>use_rule1 : <code class="type">bool Pervasives.ref</code></pre><pre><span class="keyword">val</span> <a name="VALuse_rule2"></a>use_rule2 : <code class="type">bool Pervasives.ref</code></pre><pre><span class="keyword">val</span> <a name="VALuse_rule3"></a>use_rule3 : <code class="type">bool Pervasives.ref</code></pre><pre><span class="keyword">val</span> <a name="VALuse_rule4"></a>use_rule4 : <code class="type">bool Pervasives.ref</code></pre><pre><span class="keyword">val</span> <a name="VALrule1_counter"></a>rule1_counter : <code class="type">Int64.t Pervasives.ref</code></pre><pre><span class="keyword">val</span> <a name="VALrule2_counter"></a>rule2_counter : <code class="type">Int64.t Pervasives.ref</code></pre><pre><span class="keyword">val</span> <a name="VALrule3_counter"></a>rule3_counter : <code class="type">Int64.t Pervasives.ref</code></pre><pre><span class="keyword">val</span> <a name="VALrule4_counter"></a>rule4_counter : <code class="type">Int64.t Pervasives.ref</code></pre></body></html>

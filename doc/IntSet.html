@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="IntMap.html">
+<link rel="next" href="KSW.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="ECC" rel="Chapter" href="ECC.html">
+<link title="Graph" rel="Chapter" href="Graph.html">
+<link title="IntMap" rel="Chapter" href="IntMap.html">
+<link title="IntSet" rel="Chapter" href="IntSet.html">
+<link title="KSW" rel="Chapter" href="KSW.html">
+<link title="PSQueue" rel="Chapter" href="PSQueue.html">
+<link title="Sweep" rel="Chapter" href="Sweep.html">
+<link title="Util" rel="Chapter" href="Util.html"><title>IntSet</title>
+</head>
+<body>
+<div class="navbar"><a href="IntMap.html">Previous</a>
+&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="KSW.html">Next</a>
+</div>
+<center><h1>Module <a href="type_IntSet.html">IntSet</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> IntSet: <code class="code">sig</code> <a href="IntSet.html">..</a> <code class="code">end</code></pre>A module for sets of integers represented as big endian patricia tree.<br>
+<hr width="100%">
+<pre><span class="keyword">type</span> <a name="TYPEt"></a><code class="type"></code>t </pre>
+<div class="info">
+The type of the set.<br>
+</div>
+
+<pre><span class="keyword">val</span> <a name="VALempty"></a>empty : <code class="type"><a href="IntSet.html#TYPEt">t</a></code></pre><div class="info">
+The empty set.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALsingleton"></a>singleton : <code class="type">int -> <a href="IntSet.html#TYPEt">t</a></code></pre><div class="info">
+Returns a one-element set.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALof_list"></a>of_list : <code class="type">int list -> <a href="IntSet.html#TYPEt">t</a></code></pre><div class="info">
+Returns a set containing all elements of the list.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALis_empty"></a>is_empty : <code class="type"><a href="IntSet.html#TYPEt">t</a> -> bool</code></pre><div class="info">
+Test whether the set is empty (O(1)).<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALsize"></a>size : <code class="type"><a href="IntSet.html#TYPEt">t</a> -> int</code></pre><div class="info">
+Returns the number of elements of a set (O(1)).<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALequal"></a>equal : <code class="type"><a href="IntSet.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">t</a> -> bool</code></pre><div class="info">
+<code class="code">equal s1 s2</code> is true when <code class="code">s1</code> and <code class="code">s2</code> contain the same elements.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALcontains"></a>contains : <code class="type"><a href="IntSet.html#TYPEt">t</a> -> int -> bool</code></pre><div class="info">
+<code class="code">contains s i</code> returns true if <code class="code">i</code> is element of <code class="code">s</code> (O(log n)).<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALis_subset"></a>is_subset : <code class="type"><a href="IntSet.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">t</a> -> bool</code></pre><div class="info">
+<code class="code">subset s1 s2</code> tests whether the set <code class="code">s1</code> is a subset of the set <code class="code">s2</code>.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALchoose"></a>choose : <code class="type"><a href="IntSet.html#TYPEt">t</a> -> int</code></pre><div class="info">
+Return one element of the given set, or raise <code class="code">Not_found</code> if the set
+    is empty.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALadd"></a>add : <code class="type"><a href="IntSet.html#TYPEt">t</a> -> int -> <a href="IntSet.html#TYPEt">t</a></code></pre><div class="info">
+<code class="code">add x s</code> returns a set containing all elements of <code class="code">s</code>, plus
+    <code class="code">x</code>. If <code class="code">x</code> was already in <code class="code">s</code>, <code class="code">s</code> is returned unchanged.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALremove"></a>remove : <code class="type"><a href="IntSet.html#TYPEt">t</a> -> int -> <a href="IntSet.html#TYPEt">t</a></code></pre><div class="info">
+<code class="code">remove x s</code> returns a set containing all elements of <code class="code">s</code> except
+    <code class="code">x</code>. If <code class="code">x</code> is not in <code class="code">s</code>, <code class="code">s</code> is returned unchanged.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALpop"></a>pop : <code class="type"><a href="IntSet.html#TYPEt">t</a> -> int * <a href="IntSet.html#TYPEt">t</a></code></pre><pre><span class="keyword">val</span> <a name="VALunion"></a>union : <code class="type"><a href="IntSet.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">t</a></code></pre><div class="info">
+Set union.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALminus"></a>minus : <code class="type"><a href="IntSet.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">t</a></code></pre><div class="info">
+Set difference.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALintersection"></a>intersection : <code class="type"><a href="IntSet.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">t</a></code></pre><div class="info">
+Set intersection.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALdo_intersect"></a>do_intersect : <code class="type"><a href="IntSet.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">t</a> -> bool</code></pre><div class="info">
+True if the two sets have a nonempty intersection.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALintersection_size"></a>intersection_size : <code class="type"><a href="IntSet.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">t</a> -> int</code></pre><div class="info">
+Number of elements in the intersection.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALsplit"></a>split : <code class="type"><a href="IntSet.html#TYPEt">t</a> -> int -> <a href="IntSet.html#TYPEt">t</a> * bool * <a href="IntSet.html#TYPEt">t</a></code></pre><div class="info">
+<code class="code">split x s</code> returns a triple <code class="code">(l, present, r)</code>, where
+    <code class="code">l</code> is the set of elements of <code class="code">s</code> that are strictly less than <code class="code">x</code>;
+    <code class="code">r</code> is the set of elements of <code class="code">s</code> that are strictly greater than <code class="code">x</code>;
+    <code class="code">present</code> is <code class="code">false</code> if <code class="code">s</code> contains no element equal to <code class="code">x</code>, or
+    <code class="code">true</code> if <code class="code">s</code> contains an element equal to <code class="code">x</code>.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALpartition"></a>partition : <code class="type">(int -> bool) -> <a href="IntSet.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">t</a> * <a href="IntSet.html#TYPEt">t</a></code></pre><div class="info">
+<code class="code">partition p s</code> returns a pair of sets <code class="code">(s1, s2)</code>, where <code class="code">s1</code> is
+    the set of all the elements of <code class="code">s</code> that satisfy the predicate <code class="code">p</code>,
+    and <code class="code">s2</code> is the set of all the elements of <code class="code">s</code> that do not satisfy
+    <code class="code">p</code>.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALfind_opt"></a>find_opt : <code class="type">(int -> 'a option) -> <a href="IntSet.html#TYPEt">t</a> -> 'a option</code></pre><div class="info">
+<code class="code">find_opt p s</code> returns <code class="code">Some i</code> when <code class="code">p</code> returns <code class="code">Some i</code> for some
+    element of <code class="code">s</code>, or <code class="code">None</code> if <code class="code">p</code> returns <code class="code">None</code> for all elements of
+    <code class="code">s</code>.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALfind"></a>find : <code class="type">(int -> bool) -> <a href="IntSet.html#TYPEt">t</a> -> int</code></pre><div class="info">
+<code class="code">find p s</code> returns <code class="code">i</code> when <code class="code">p</code> returns <code class="code">true</code> for some element of
+    <code class="code">s</code>, or raises <code class="code">Not_found</code> if <code class="code">p</code> returns <code class="code">false</code> for all elements
+    of <code class="code">s</code>.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALfor_all"></a>for_all : <code class="type">(int -> bool) -> <a href="IntSet.html#TYPEt">t</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALfold"></a>fold : <code class="type">('a -> int -> 'a) -> <a href="IntSet.html#TYPEt">t</a> -> 'a -> 'a</code></pre><pre><span class="keyword">val</span> <a name="VALfold_intersection"></a>fold_intersection : <code class="type">('a -> int -> 'a) -> <a href="IntSet.html#TYPEt">t</a> -> <a href="IntSet.html#TYPEt">t</a> -> 'a -> 'a</code></pre><pre><span class="keyword">val</span> <a name="VALiter"></a>iter : <code class="type">(int -> unit) -> <a href="IntSet.html#TYPEt">t</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALoutput"></a>output : <code class="type">Pervasives.out_channel -> <a href="IntSet.html#TYPEt">t</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALprint"></a>print : <code class="type"><a href="IntSet.html#TYPEt">t</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdump"></a>dump : <code class="type"><a href="IntSet.html#TYPEt">t</a> -> unit</code></pre></body></html>

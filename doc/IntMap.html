@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Graph.html">
+<link rel="next" href="IntSet.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="ECC" rel="Chapter" href="ECC.html">
+<link title="Graph" rel="Chapter" href="Graph.html">
+<link title="IntMap" rel="Chapter" href="IntMap.html">
+<link title="IntSet" rel="Chapter" href="IntSet.html">
+<link title="KSW" rel="Chapter" href="KSW.html">
+<link title="PSQueue" rel="Chapter" href="PSQueue.html">
+<link title="Sweep" rel="Chapter" href="Sweep.html">
+<link title="Util" rel="Chapter" href="Util.html"><title>IntMap</title>
+</head>
+<body>
+<div class="navbar"><a href="Graph.html">Previous</a>
+&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="IntSet.html">Next</a>
+</div>
+<center><h1>Module <a href="type_IntMap.html">IntMap</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> IntMap: <code class="code">sig</code> <a href="IntMap.html">..</a> <code class="code">end</code></pre>A module for maps of integers represented as big endian patricia tree.<br>
+<hr width="100%">
+<pre><span class="keyword">type</span> <a name="TYPEt"></a><code class="type">'a</code> t </pre>
+<div class="info">
+The type of the map.<br>
+</div>
+
+<pre><span class="keyword">val</span> <a name="VALempty"></a>empty : <code class="type">'a <a href="IntMap.html#TYPEt">t</a></code></pre><div class="info">
+The empty map.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALis_empty"></a>is_empty : <code class="type">'a <a href="IntMap.html#TYPEt">t</a> -> bool</code></pre><pre><span class="keyword">val</span> <a name="VALsize"></a>size : <code class="type">'a <a href="IntMap.html#TYPEt">t</a> -> int</code></pre><div class="info">
+Returns the number of elements of a set (O(1)).<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALhas_key"></a>has_key : <code class="type">'a <a href="IntMap.html#TYPEt">t</a> -> int -> bool</code></pre><div class="info">
+<code class="code">has_key m i</code> returns true if there is a mapping <code class="code">(i, x)</code> in <code class="code">m</code>
+    (O(log n)).<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALmax_key"></a>max_key : <code class="type">'a <a href="IntMap.html#TYPEt">t</a> -> int</code></pre><pre><span class="keyword">val</span> <a name="VALget"></a>get : <code class="type">'a <a href="IntMap.html#TYPEt">t</a> -> int -> 'a</code></pre><div class="info">
+<code class="code">get m i</code> returns the current binding of <code class="code">i</code> in <code class="code">m</code>, or raises
+    <code class="code">Not_found</code> if no such binding exists.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALget_default"></a>get_default : <code class="type">'a <a href="IntMap.html#TYPEt">t</a> -> int -> 'a -> 'a</code></pre><div class="info">
+<code class="code">get_default m i x</code> returns the current binding of <code class="code">i</code> in <code class="code">m</code>, or
+    <code class="code">x</code> if no such binding exists.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALadd"></a>add : <code class="type">'a <a href="IntMap.html#TYPEt">t</a> -> int -> 'a -> 'a <a href="IntMap.html#TYPEt">t</a></code></pre><div class="info">
+<code class="code">add m i x</code> returns a map containing the same bindings as <code class="code">m</code>,
+    plus a binding of <code class="code">i</code> to <code class="code">x</code>. If <code class="code">x</code> was already bound in <code class="code">m</code>,
+    its previous binding disappears.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALremove"></a>remove : <code class="type">'a <a href="IntMap.html#TYPEt">t</a> -> int -> 'a <a href="IntMap.html#TYPEt">t</a></code></pre><div class="info">
+<code class="code">remove m i</code>returns a map containing the same bindings as <code class="code">m</code>,
+    except for <code class="code">i</code> which is unbound in the returned map.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALupdate"></a>update : <code class="type">('a -> 'a) -> 'a <a href="IntMap.html#TYPEt">t</a> -> int -> 'a <a href="IntMap.html#TYPEt">t</a></code></pre><pre><span class="keyword">val</span> <a name="VALfold"></a>fold : <code class="type">('a -> int -> 'b -> 'a) -> 'b <a href="IntMap.html#TYPEt">t</a> -> 'a -> 'a</code></pre><div class="info">
+<code class="code">fold f m a</code> computes <code class="code">(f iN xN ... (f i1 x1 a)...)</code>, where <code class="code">i1
+    ... In</code> are the keys of all bindings in <code class="code">m</code> (in increasing
+    order), and <code class="code">x1 ... xN</code> are the associated data.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALiter"></a>iter : <code class="type">(int -> 'a -> unit) -> 'a <a href="IntMap.html#TYPEt">t</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALmap"></a>map : <code class="type">(int -> 'a -> 'b) -> 'a <a href="IntMap.html#TYPEt">t</a> -> 'b <a href="IntMap.html#TYPEt">t</a></code></pre><div class="info">
+<code class="code">map f m</code> returns a map with same domain as <code class="code">m</code>, where the
+    associated value <code class="code">x</code> of all bindings of <code class="code">m</code> has been replaced by the
+    result of the application of <code class="code">f</code> to <code class="code">a</code>. The bindings are passed to
+    <code class="code">f</code> in increasing order of the keys.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALfind"></a>find : <code class="type">(int -> 'a -> bool) -> 'a <a href="IntMap.html#TYPEt">t</a> -> int * 'a</code></pre><div class="info">
+<code class="code">find p m</code> returns <code class="code">(i, x)</code> when <code class="code">p</code> returns <code class="code">true</code> for some
+    binding <code class="code">(i, x)</code> in <code class="code">m</code>, or raises <code class="code">Not_found</code> if <code class="code">p</code> returns
+    <code class="code">false</code> for all elements of <code class="code">m</code>.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALfor_all"></a>for_all : <code class="type">(int -> 'a -> bool) -> 'a <a href="IntMap.html#TYPEt">t</a> -> bool</code></pre><div class="info">
+<code class="code">for_all p m</code> checks whether all bindings of <code class="code">m</code> satisfy the
+    predicate <code class="code">p</code>.<br>
+</div>
+<pre><span class="keyword">val</span> <a name="VALoutput"></a>output : <code class="type">(Pervasives.out_channel -> 'a -> unit) -><br>       Pervasives.out_channel -> 'a <a href="IntMap.html#TYPEt">t</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALprint"></a>print : <code class="type">(Pervasives.out_channel -> 'a -> unit) -> 'a <a href="IntMap.html#TYPEt">t</a> -> unit</code></pre><pre><span class="keyword">val</span> <a name="VALdump"></a>dump : <code class="type">(Pervasives.out_channel -> 'a -> unit) -> 'a <a href="IntMap.html#TYPEt">t</a> -> unit</code></pre></body></html>
