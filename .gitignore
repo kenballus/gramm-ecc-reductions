@@ -1,0 +1,6 @@
+*.o
+*.cmx
+*.cmi
+ecc
+random-graph
+gnmp
